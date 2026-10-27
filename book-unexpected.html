@@ -13,6 +13,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="book.css">
+  <link rel="stylesheet" href="book-unexpected-reader.css">
 </head>
 <body class="book-page">
   <a class="skip-link" href="#reader">跳到电子书阅读器</a>
@@ -136,20 +137,30 @@
           </div>
         </div>
 
-        <div class="pdf-reader">
+        <div class="pdf-reader custom-pdf-reader">
           <div class="pdf-toolbar">
             <div>
               <span class="pdf-status-dot"></span>
               <strong>365天 珈由的意想不到</strong>
               <span>完整版 · 370页</span>
             </div>
-            <div class="pdf-toolbar-links">
-              <a href="https://guiyi-jiayou.github.io/muzi-365-assets/books/book-unexpected-web.pdf#page=3" target="_blank" rel="noopener">前言</a>
-              <a href="https://guiyi-jiayou.github.io/muzi-365-assets/books/book-unexpected-web.pdf#page=4" target="_blank" rel="noopener">目录</a>
+            <div class="reader-controls">
+              <button type="button" id="prevPage" aria-label="上一页" disabled>←</button>
+              <label class="page-jump">
+                <span class="visually-hidden">页码</span>
+                <input id="pageNumber" type="number" min="1" value="1" inputmode="numeric" aria-label="输入页码">
+                <span>/</span>
+                <span id="pageCount">—</span>
+              </label>
+              <button type="button" id="nextPage" aria-label="下一页" disabled>→</button>
             </div>
           </div>
-          <div class="pdf-frame-wrap">
-            <iframe src="https://guiyi-jiayou.github.io/muzi-365-assets/books/book-unexpected-web.pdf#view=FitH&page=1" title="《365天 珈由的意想不到》PDF 在线阅读器" loading="eager"></iframe>
+          <div class="pdf-frame-wrap custom-pdf-stage" id="pdfStage">
+            <img id="pageImage" src="https://guiyi-jiayou.github.io/muzi-365-assets/readers/unexpected/page-001.jpg" alt="365天 珈由的意想不到，第1页">
+            <div class="reader-loading" id="readerLoading">
+              <span></span>
+              <p>正在打开第 1 页…</p>
+            </div>
           </div>
         </div>
 
@@ -177,5 +188,6 @@
       <a href="#reader">回到阅读器 ↑</a>
     </div>
   </footer>
+  <script type="module" src="unexpected-reader.js"></script>
 </body>
 </html>
